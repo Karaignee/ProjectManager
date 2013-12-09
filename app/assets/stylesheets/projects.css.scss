@@ -1,0 +1,19 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#indiv-map {
+  background-color: #128b14;
+  width: 60%;
+  height: 400px;
+}
+
+#mf-map img,
+#indiv-map img {
+  max-width: none;
+}
+
+#mf-map label,
+#indiv-map label {
+  width: auto; display:inline;
+}
