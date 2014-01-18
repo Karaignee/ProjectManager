@@ -4,22 +4,23 @@
 
 $ ->
   $('.date').datepicker()
-  $('.date').datepicker("option", "dateFormat", "dd/mm/yy")
-
-  for date in $('.date')
-    $(date).datepicker("setDate", $(date).attr('data-value'))
+  #$('.date').datepicker("option", "dateFormat", "dd/mm/yy")
 
 
-  if mapEl
-    mapOptions = {
-      center: new google.maps.LatLng(latitude, longitude),
-      zoom: 12,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
+  #for date in $('.date')
+   # $(date).datepicker("setDate", $(date).attr('data-value'))
 
-    map = new google.maps.Map(mapEl, mapOptions)
 
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng(latitude, longitude),
-      map: map
-    })
+ #if mapEl
+  #  mapOptions = {
+   #   center: new google.maps.LatLng(latitude, longitude),
+    #  zoom: 12,
+    #  mapTypeId: google.maps.MapTypeId.ROADMAP
+   # }
+
+   # map = new google.maps.Map(mapEl, mapOptions)
+  #
+  #  marker = new google.maps.Marker({
+  #    position: new google.maps.LatLng(latitude, longitude),
+  #    map: map
+   # })
