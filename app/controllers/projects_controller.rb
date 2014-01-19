@@ -1,10 +1,11 @@
 class ProjectsController < ApplicationController
 
-
-
   # every method has to have an ajaxy url
+
+  helper_method :sort_column, :sort_direction
+
   def index
-    @projects = Project.all
+    @projects = Project.search(params[:search]).order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,4 +83,14 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+end
+
+private
+
+def sort_column
+  Project.column_names.include?(params[:sort]) ? params[:sort] : 'title'
+end
+
+def sort_direction
+  %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
 end

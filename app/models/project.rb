@@ -10,6 +10,17 @@ class Project < ActiveRecord::Base
   validates :summary, :presence => true
 
 
+def self.search(search)
+   if search
+     where('title LIKE :s or location LIKE :s or summary LIKE :s', s: "%#{search}%")
+   else
+     scoped
+   end
+end
 
 
 end
+
+
+# or lower() '%' + search.downcase + '%'
+
