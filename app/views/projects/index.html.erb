@@ -1,6 +1,18 @@
 <h1>All Projects</h1>
 
-<%= render 'table' %>
+<h3>List</h3>
+<div>
+  <ul>
+   <% @projects.each do |project| %>
+    <li>
+       <%= link_to project.title, project_path(project) %><br/>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+
+<div id='project_table'><%= render 'table' %></div>
 
 <%= form_tag projects_path, :method => :get do %>
 <%= hidden_field_tag :direction, params[:direction] %>
@@ -10,8 +22,6 @@
       <%= submit_tag "Search", :name => nil, :class => 'btn btn-primary' %>
     </p>
 <% end %>
-
-
 
 
 <br />

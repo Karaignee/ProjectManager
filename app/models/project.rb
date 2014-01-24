@@ -22,5 +22,4 @@ end
 end
 
 
-# or lower() '%' + search.downcase + '%'
 

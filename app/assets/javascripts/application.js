@@ -15,3 +15,10 @@
 //= require jquery.ui.datepicker
 //= require jquery.ui.all
 //= require_tree .
+
+$(function () {
+        $('#project_table th a').on('click', function () {
+            $.getScript(this.href);
+            return false;
+        });
+    })

@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <ul id="error_msg">
+ </ul>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -23,14 +25,7 @@
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
+
   <div class="field">
     <%= f.label :target_date %><br />
     <%= f.text_field :target_date, :class => 'date', 'data-value' => @project.target_date ? @project.target_date.to_s(:simple) : '' %>
@@ -39,3 +34,6 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+

@@ -27,10 +27,47 @@
   <span id="weather_c" ></span> c
 </div>
 
-<div id="indiv-map"></div>
+
+<title>Quick Simple Light Box</title>
+
+<h1>Testing Lightbox</h1>
+
+<h1>This is my webpage...</h1>
+
+<div class="backdrop"></div>
+<div class="box"><div class="close">x</div>This is the lightbox!!!</div>
+
+<a href="#" class="lightbox">Open Lightbox</a>
 
 
 <script type="text/javascript">
+
+  $(document).ready(function(){
+
+    $('.lightbox').click(function(){
+      $('.backdrop, .box').animate({'opacity':'.50'}, 300, 'linear');
+      $('.box').animate({'opacity':'1.00'}, 300, 'linear');
+      $('.backdrop, .box').css('display', 'block');
+    });
+
+    $('.close').click(function(){
+      close_box();
+    });
+
+    $('.backdrop').click(function(){
+      close_box();
+    });
+
+  });
+
+  function close_box()
+  {
+    $('.backdrop, .box').animate({'opacity':'0'}, 300, 'linear', function(){
+      $('.backdrop, .box').css('display', 'none');
+    });
+  }
+
+
     var longitude = '<%= @project.longitude %>';
     var latitude = '<%= @project.latitude %>';
 
