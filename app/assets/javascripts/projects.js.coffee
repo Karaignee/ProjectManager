@@ -11,3 +11,19 @@ $ ->
     $(date).datepicker("setDate", $(date).attr('data-value'))
 
 
+
+  return if not document.getElementById("indiv-map")
+
+  mapOptions = {
+    center: new google.maps.LatLng(lat, lon),
+    zoom: 12,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+
+
+  map = new google.maps.Map(document.getElementById("indiv-map"), mapOptions)
+
+  marker = new google.maps.Marker({
+    position: new google.maps.LatLng(lat, lon),
+    map: map
+  })

@@ -1,24 +1,35 @@
-
-<table>
+<div id="accordion">
+<table class="pretty">
   <tr>
-    <th><%= sortable "Project Title" %></th>
-    <th><%= sortable "Summary" %></th>
-    <th><%= sortable "Address" %></th>
-    <th><%= sortable "Target completion date" %></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="unhid"><%= sortable "Project Title" %></th>
+    <th class='unhid'><%= sortable "Summary" %></th>
+    <th class='hidden'><%= sortable "Address" %></th>
+    <th class='hidden'><%= sortable "Target completion date" %></th>
+    <th class='hidden'></th>
+    <th class='hidden'></th>
+    <th class='hidden'></th>
   </tr>
 
   <% @projects.each do |project| %>
       <tr>
-        <td><%= project.title %></td>
-        <td><%= project.summary %></td>
-        <td><%= project.location %></td>
-        <td><%= project.target_date %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="unhid"><%= project.title %></td>
+        <td class="unhid"><%= project.summary %></td>
+        <td class='hidden'><%= project.location %></td>
+        <td class='hidden'><%= project.target_date ? project.target_date.strftime("%d/%m/%Y") : '' %></td>
+        <td class='hidden'><%= link_to 'Show', project %></td>
+        <td class='hidden'><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td class='hidden'><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
 </table>
+</div>
+
+<script>
+
+  $('#accordion .hidden').hide();
+  $('#accordion .unhid').click(function(){
+    $('#accordion .hidden').show();
+  });
+
+
+</script>

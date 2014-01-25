@@ -29,8 +29,4 @@ $ ->
                """
     })
 
- #   ((infowindow, marker) ->
-  #    google.maps.project.addListener(marker, 'click', () ->
-   #     infowindow.open(map, marker)
-    #  )
-   # )(infowindow, marker)
+
