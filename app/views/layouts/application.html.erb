@@ -8,12 +8,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav>
-<%= link_to 'Projects', projects_path%>
-  | <%= link_to 'Home', root_url %>
+<div id="header">
+  <div id="menu">
+    <ul>
+  <%= link_to 'Projects', projects_path%>
+  |<%= link_to 'Home', root_url %>
   | <a href="#">Tasks</a>
-</nav>
-<%= yield %>
+    </ul>
+  </div>
+</div>
+
+<div id="content">
+  <%= yield %>
+</div>
 
 </body>
 </html>

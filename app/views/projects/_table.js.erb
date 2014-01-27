@@ -1,0 +1,3 @@
+$('#projects').html("<%= escape_javascript(render("projects")) %>");
+
+// Without escaping the partial, the javascript would not be valid

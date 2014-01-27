@@ -22,3 +22,4 @@ $(function () {
             return false;
         });
     })
+//Ajax getScript call works along with JSON served from the controller index, and a javascript

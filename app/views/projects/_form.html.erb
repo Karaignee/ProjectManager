@@ -13,6 +13,7 @@
 
   <ul id="error_msg">
  </ul>
+
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -37,3 +38,71 @@
 
 
 
+<script>
+  var is_form_valid = function () {
+
+
+
+    var display_error = function (input, msg) {
+      $(input).parents(".field")
+        .addClass("field_with_errors");
+
+      $("#error_msg").append("<li>" + msg + "</li>");
+      return false;
+    }
+
+
+
+    var is_title_valid = function () {
+      var input = $("#project_title");
+      var value = $(input).val().trim();
+      $(input).val(value);
+
+      if (value == "") return display_error(input, "Title cannot be blank");
+
+
+      return true;
+    }
+
+    var is_summary_valid = function () {
+      var input = $("#project_summary");
+      var value = $(input).val().trim();
+      $(input).val(value);
+
+      if (value == "") return display_error(input, "Summary cannot be blank");
+
+
+      return true;
+    }
+
+
+
+    var is_location_valid = function () {
+      var input = $("#project_location");
+      var value = $(input).val().trim();
+      $(input).val(value);
+
+      if (value == "") return display_error(input, "Location cannot be blank");
+
+      return true;
+    }
+
+    //the prevent default was not working due to a syntax error on the date validation,
+    //so I removed date field validation for now so that the form would not default to server.
+
+    $("#error_msg").empty();
+    $(".field_with_errors").removeClass("field_with_errors");
+
+    var valid = true;
+    valid *= is_title_valid();
+    valid *= is_summary_valid();
+    valid *= is_location_valid();
+    return valid;
+  }
+
+  $("form").on("submit", function(e) {
+    if (!is_form_valid()) {
+      e.preventDefault();
+    }
+  });
+</script>

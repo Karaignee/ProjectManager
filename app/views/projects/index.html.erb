@@ -1,15 +1,6 @@
-<h1>All Projects</h1>
 
-<h3>List</h3>
-<div>
-  <ul>
-   <% @projects.each do |project| %>
-    <li>
-       <%= link_to project.title, project_path(project) %><br/>
-    </li>
-    <% end %>
-  </ul>
-</div>
+<div id="right">
+<h1>Projects</h1>
 
 
 <div id='project_table'><%= render 'table' %></div>
@@ -27,3 +18,36 @@
 <br />
 
 <%= link_to 'New Project', new_project_path %>
+
+</div>
+
+<div id="left">
+
+  <div id="droplist">
+    <h3>List of Projects</h3>
+
+    <ul>
+      <% @projects.each do |project| %>
+        <%= link_to project.title, project_path(project) %><br/>
+      <% end %>
+    </ul>
+  </div>
+
+
+</div>
+
+<script>
+
+
+  $(function(){
+    $('#droplist ul').hide()
+    $('#droplist h3').click(function(){
+      $('#droplist ul').show();
+      });
+  });
+
+
+</script>
+
+
+

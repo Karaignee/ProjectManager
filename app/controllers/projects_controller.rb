@@ -1,10 +1,9 @@
 class ProjectsController < ApplicationController
 
-  # every method has to have an ajaxy url
-
   helper_method :sort_column, :sort_direction
 
   def index
+    #here we drive the project index, passing in search params and column sorting, however this may be where the ajax reload is breaking
     @projects = Project.search(params[:search]).order(sort_column + " " + sort_direction)
 
     respond_to do |format|
@@ -13,8 +12,8 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # GET /projects/1
-  # GET /projects/1.json
+
+
   def show
     @project = Project.find(params[:id])
 
@@ -24,8 +23,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # GET /projects/new
-  # GET /projects/new.json                                                                                 d
   def new
     @project = Project.new
 
